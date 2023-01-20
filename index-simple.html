@@ -1,5 +1,5 @@
 <head>
-    <title>EO Chart Defi V100</title>
+    <title>EO Chart Complex V100</title>
     <style>
         html,
         * {
@@ -8,7 +8,7 @@
 
         body {
             overflow: hidden;
-            background-color: #021624;
+            background-color:  #021624;
         }
 
         .container {
@@ -17,7 +17,7 @@
 
         }
 
-        #squareifr {
+        #ifr {
             position: absolute;
             width: 106px;
             display: flex;
@@ -29,55 +29,24 @@
             border: 0px;
             top: 0px;
         }
-        #groupifr {
+
+        #chartContainer {
             position: absolute;
-            width: 48px;
-            display: flex;
-            justify-content: right;
-            right: 100px;
-            height: 100%;
-            margin: 0px;
-            padding: 0px;
-            border: 0px;
             top: 0px;
-        }
-/*
- #graphContainer {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            right: 132px;
+            height: 100%;
             width: 100%;
-        }*/
-        #chartContainer { 
-            width: 100%;
-            height: 100%; 
-            position: absolute;
-            right: 138px;
-        }
-        /* #numgviewer {   
-            height: 186px;
-            width: 100%;
-            transform: translate(-20px,407px);
-            margin: 0px;
             border: 0px;
-            padding: 0px;
-        }*/
+            margin: 0px;
+            right: 98px;
+           
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-       <!-- <div id="graphContainer">
-          
-                
-         
-            <iframe id="numgviewer" src="ngview.html"></iframe>  
-        </div>
-        -->
         <div id="chartContainer"></div>
-        <iframe id="groupifr" src="group_tracker.html"></iframe>
-        <iframe id="squareifr" src="index-sq.html"></iframe>
+        <iframe id="ifr" src="index-sq.html"></iframe> 
         <!-- <iframe id="ifr" src="index-sq-tc.html"></iframe>-->
 
     </div>
@@ -105,11 +74,11 @@
                 dataPoints: dps
             }],
             axisY: {
-                gridColor: "white",
+                gridColor:"white",
                 gridDashType: "dot",
                 gridThickness: 0.5,
                 labelFontSize: 12,
-
+                
             },
             axisX: {
                 gridDashType: "dot",
@@ -121,12 +90,12 @@
 
         var xval = 1;
         var yval = 1;
-        //var colorline = "";
+  //var colorline = "";
         function drawOddEven(yv, dg, mcolor, lcolor) {
-
+          
             if (dg % 2 == 0) {
                 yval += yv;
-                // colorline = "green"
+               // colorline = "green"
             } else {
                 yval -= yv;
                 //colorline = "red"
@@ -143,8 +112,8 @@
                 markerType: "circle",
                 markerColor: mcolor,
                 lineColor: "#83aad9",
-                lineDashType: "shortDot",
-                lineThickness: 0.5
+                lineDashType:"shortDot",
+                lineThickness:0.5
             });
             xval += 1;
 
