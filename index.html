@@ -8,6 +8,7 @@
 
         body {
             overflow: hidden;
+            background-color:  #021624;
         }
 
         .container {
@@ -31,6 +32,7 @@
 
         #chartContainer {
             position: absolute;
+            top: 0px;
             height: 100%;
             width: 100%;
             border: 0px;
@@ -44,7 +46,8 @@
 <body>
     <div class="container">
         <div id="chartContainer"></div>
-        <iframe id="ifr" src="index-sq.html"></iframe>
+        <iframe id="ifr" src="index-sq.html"></iframe> 
+        <!-- <iframe id="ifr" src="index-sq-tc.html"></iframe>-->
 
     </div>
 
@@ -62,16 +65,20 @@
         var dps = [];
         var dataLength = 60;
         var chart = new CanvasJS.Chart("chartContainer", {
-            theme: "light1", // "light1", "light2", "dark1", "dark2"
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
             animationEnabled: true,
+            backgroundColor: "#021624",
+            /*backgroundColor: "#041220",*/
             data: [{
                 type: "line",
                 dataPoints: dps
             }],
             axisY: {
+                gridColor:"white",
                 gridDashType: "dot",
-                gridThickness: 1,
-                labelFontSize: 12
+                gridThickness: 0.5,
+                labelFontSize: 12,
+                
             },
             axisX: {
                 gridDashType: "dot",
@@ -83,12 +90,15 @@
 
         var xval = 1;
         var yval = 1;
-
+  //var colorline = "";
         function drawOddEven(yv, dg, mcolor, lcolor) {
+          
             if (dg % 2 == 0) {
                 yval += yv;
+               // colorline = "green"
             } else {
                 yval -= yv;
+                //colorline = "red"
             }
 
             dps.push({
@@ -101,7 +111,9 @@
                 markerSize: 6,
                 markerType: "circle",
                 markerColor: mcolor,
-                // lineColor: "green",
+                lineColor: "#83aad9",
+                lineDashType:"shortDot",
+                lineThickness:0.5
             });
             xval += 1;
 
@@ -118,29 +130,29 @@
 
             if (digit % 2 == 0) {
                 if (digit == 0) {
-                    drawOddEven(1, digit, "#55af11", "#008c20");
+                    drawOddEven(1, digit, "#55af11", "#01a501");
                 } else if (digit == 2) {
-                    drawOddEven(2, digit, "#55af11", "#008c20");
+                    drawOddEven(2, digit, "#55af11", "#01a501");
                 } else if (digit == 4) {
-                    drawOddEven(3, digit, "#55af11", "#008c20");
+                    drawOddEven(3, digit, "#55af11", "#01a501");
                 } else if (digit == 6) {
-                    drawOddEven(4, digit, "#55af11", "#008c20");
+                    drawOddEven(4, digit, "#55af11", "#01a501");
                 } else if (digit == 8) {
-                    drawOddEven(5, digit, "#55af11", "#008c20");
+                    drawOddEven(5, digit, "#55af11", "#01a501");
                 }
 
             } else {
                 if (digit == 1) {
-                    drawOddEven(1, digit, "#f95734", "red");
+                    drawOddEven(1, digit, "#f95734", "#f74117");
                 } else if (digit == 3) {
-                    drawOddEven(2, digit, "#f95734", "red");
+                    drawOddEven(2, digit, "#f95734", "#f74117");
                 }
                 else if (digit == 5) {
-                    drawOddEven(3, digit, "#f95734", "red");
+                    drawOddEven(3, digit, "#f95734", "#f74117");
                 } else if (digit == 7) {
-                    drawOddEven(4, digit, "#f95734", "red");
+                    drawOddEven(4, digit, "#f95734", "#f74117");
                 } else if (digit == 9) {
-                    drawOddEven(5, digit, "#f95734", "red");
+                    drawOddEven(5, digit, "#f95734", "#f74117");
                 }
             }
         }
