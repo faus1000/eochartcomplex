@@ -8,7 +8,9 @@
 
         body {
             overflow: hidden;
-            background-color: #021624;
+            /*background-color: #021624;
+            background-color: #041220;*/
+            background-color: #020d1c;
         }
 
         .container {
@@ -98,8 +100,10 @@
         var chart = new CanvasJS.Chart("chartContainer", {
             theme: "light2", // "light1", "light2", "dark1", "dark2"
             animationEnabled: true,
-            backgroundColor: "#021624",
-            /*backgroundColor: "#041220",*/
+            backgroundColor: "#020d1c",
+           /* backgroundColor: "#041220",
+           backgroundColor: "#021624", 
+             backgroundColor: "#041220",*/
             data: [{
                 type: "line",
                 dataPoints: dps
@@ -107,14 +111,18 @@
             axisY: {
                 gridColor: "white",
                 gridDashType: "dot",
-                gridThickness: 0.5,
+                gridThickness: 0.4,
                 labelFontSize: 12,
 
             },
             axisX: {
+                gridColor: "white",
                 gridDashType: "dot",
-                gridThickness: 0,
-                labelFontSize: 12
+                gridThickness: 0.4,
+                labelFontSize: 12,
+                tickColor: "#293F56",
+                lineColor:"#293F56"
+                /*labelFontColor: "red"*/
             }
         });
 
@@ -142,9 +150,12 @@
                 markerSize: 6,
                 markerType: "circle",
                 markerColor: mcolor,
-                lineColor: "#83aad9",
+               /* lineColor: "#83aad9", 
+                 lineColor: "#22BBE0",
+                 lineColor: "#1BB0E0", */
+                 lineColor: "#3399ff", 
                 lineDashType: "shortDot",
-                lineThickness: 0.5
+                lineThickness: 0.3
             });
             xval += 1;
 
