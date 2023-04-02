@@ -54,10 +54,9 @@
         #chartContainer { 
             width: 100%;
             height: 100%; 
-            /*position: absolute;
-            right: 138px;*/
+            position: absolute;
+            right: 138px;/**/
             /*bottom: 50px;*/
-            transform: translate(-140px, 0px);
         }
         /* #numgviewer {   
             height: 186px;
@@ -68,25 +67,15 @@
             padding: 0px;
         }*/
         #counting{
-           /* position: absolute;
-            bottom: 1px;*/
-            height: 82px;
-             width: 100%;
-            /*right: 138px;
-           
-            transform: translate(-157px, 0px);*/
+            position: absolute;
+            bottom: 1px;
+            height: 80px;
+            right: 140px;
+            width: 100%;
         }
         #fcounting{
 border: 0px;
 width: 100%;
-        }
-        #dualvert{
-            padding: 0px;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
         }
     </style>
 </head>
@@ -100,19 +89,15 @@ width: 100%;
             <iframe id="numgviewer" src="ngview.html"></iframe>  
         </div>
         -->
-        <div id="dualvert">
-            <div id="chartContainer"></div>
-            <div id="counting">
-                <iframe id="fcounting" src="https://faus1000.github.io/digitCount/"></iframe>
-            </div>
-        </div>
-        
+        <div id="chartContainer"></div>
         <iframe id="groupifr" src="group_tracker.html"></iframe>
         <iframe id="squareifr" src="index-sq.html"></iframe>
         <!-- <iframe id="ifr" src="index-sq-tc.html"></iframe>-->
 
     </div>
-    
+    <div id="counting">
+        <iframe id="fcounting" src="https://faus1000.github.io/digitCount/"></iframe>
+    </div>
 
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script>
@@ -194,25 +179,11 @@ width: 100%;
             }
             chart.render();
         }
-        var contador = 0;
 
         ws.onmessage = function (msg) {
             var data = JSON.parse(msg.data);
             var digit = Number(data.tick.quote).toFixed(decimals).slice(-1);
             // console.log(digit);
-            contador++
-            var grafico = document.getElementById("chartContainer");
-            var counter = document.getElementById("counting");
-            if (contador>=25){
-                //APLIcar la traslacion 
-               
-                //grafico.style.transform="translateX(-140px)"
-                counter.style.transform="translateX(-157px)"
-            }else{
-                //sin traslacion aun
-                //grafico.style.transform="translateX(0px)"
-                counter.style.transform="translateX(0px)"
-            }
 
             if (digit % 2 == 0) {
                 if (digit == 0) {
