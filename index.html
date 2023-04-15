@@ -69,8 +69,9 @@
         }*/
         #counting{
            /* position: absolute;
-            bottom: 1px;*/
-            height: 82px;
+            bottom: 1px;
+            height: 82px;*/
+            height: 113px;
              width: 100%;
             /*right: 138px;
            
@@ -118,6 +119,8 @@ width: 100%;
     <script>
         var symbol = "R_100";
         var decimals = 2;
+        // var symbol = "RDBEAR";
+        //var decimals = 4;
         var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=1089');
 
         ws.onopen = function (evt) {
