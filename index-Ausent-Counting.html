@@ -1,17 +1,12 @@
 <head>
-    <title>EO Chart ALL V100</title>
+    <title>EO Chart Defi V100</title>
     <style>
         html,
         * {
-            margin: 0px;
-            border: 0px;
             padding: 0px;
         }
 
         body {
-            margin: 0px;
-            border: 0px;
-            padding: 0px;
             overflow: hidden;
             /*background-color: #021624;
             background-color: #041220;*/
@@ -19,25 +14,12 @@
         }
 
         .container {
-            display: grid;
-        grid-template-columns: auto  86px 106px;
-        height: 100%;
+            display: flex;
+            flex-direction: row;
 
         }
 
         #squareifr {
-           /* position: absolute;*/
-            width: 106px;
-            display: flex;
-            justify-content: right;
-            right: 0px;
-            height: 100%;
-            margin: 0px;
-            padding: 0px;
-            border: 0px;
-            top: 0px;
-        }
-        #tickdg {
             position: absolute;
             width: 106px;
             display: flex;
@@ -51,11 +33,11 @@
         }
 
         #groupifr {
-            /*position: absolute;*/
-           width: 86px;
+            position: absolute;
+            width: 48px;
             display: flex;
             justify-content: right;
-           /* right: 100px;*/
+            right: 100px;
             height: 100%;
             margin: 0px;
             padding: 0px;
@@ -76,8 +58,8 @@
             height: 100%;
             /*position: absolute;
             right: 138px;*/
-            /*bottom: 50px;
-            transform: translate(-145px, 26px);*/
+            /*bottom: 50px;*/
+            transform: translate(-145px, 26px);
         }
 
         /* #numgviewer {   
@@ -100,24 +82,16 @@
         #fcounting {
             border: 0px;
             width: 100%;
-            height: 220px;
+            height: 303px;
         }
 
         #dualvert {
             padding: 0px;
-            /*position: absolute;*/
+            position: absolute;
             width: 100%;
             height: 100%;
-            /*display: flex;
-            flex-direction: column;*/
-
-            display: grid;   
-            grid-template-columns: 1fr;
-             grid-template-rows: 1fr 200px; 
-            /* right: 42px;*/
-
-
-
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -135,15 +109,12 @@
             <div id="chartContainer"></div>
             <div id="counting">
                 <!-- <iframe id="fcounting" src="https://faus1000.github.io/digitCount/"></iframe>-->
-                <!-- <iframe id="fcounting" src="https://faus1000.github.io/ausentcounter/"></iframe> -->
-                <iframe id="fcounting" src="https://faus1000.github.io/viewsystem/"></iframe>
+                <iframe id="fcounting" src="https://faus1000.github.io/ausentcounter/"></iframe>
             </div>
         </div>
 
-       <!-- <iframe id="groupifr" src="group_tracker.html"></iframe> 
-         <iframe id="squareifr" src="index-sq.html"></iframe> -->
-        <iframe id="groupifr" src="https://faus1000.github.io/tickdigit/index-sidebar-up.html"></iframe>
-        <!-- <iframe id="tickdg" src="https://faus1000.github.io/tickdigit/"></iframe> -->
+        <iframe id="groupifr" src="group_tracker.html"></iframe>
+        <!-- <iframe id="squareifr" src="index-sq.html"></iframe> -->
         <iframe id="squareifr" src="index-sq-tc.html"></iframe>
 
     </div>
@@ -163,7 +134,7 @@
 
 
         var dps = [];
-        var dataLength =60;
+        var dataLength = 100;
         var chart = new CanvasJS.Chart("chartContainer", {
             theme: "light2", // "light1", "light2", "dark1", "dark2"
             animationEnabled: true,
@@ -243,11 +214,16 @@
             contador++
             var grafico = document.getElementById("chartContainer");
             var counter = document.getElementById("counting");
-           /* if (contador >= 25) { 
+            if (contador >= 25) {
+                //APLIcar la traslacion 
+
+                //grafico.style.transform="translateX(-140px)"
                 counter.style.transform = "translateX(-157px)"
-            } else { 
+            } else {
+                //sin traslacion aun
+                //grafico.style.transform="translateX(0px)"
                 counter.style.transform = "translateX(0px)"
-            } */
+            }
 
             if (digit % 2 == 0) {
                 if (digit == 0) {
